@@ -1,25 +1,33 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
+import Odontologos from './components/Odontologos.jsx'
+import { buscarTodos, eliminarOdontologo, crearOdontologo, actualizarOdontologo, encontrarOdontologo } from './services/odontologoService';
 
-function App() {
-  return (
+class App extends React.Component {
+
+  componentDidMount() {
+    // buscarTodos();
+    // eliminarOdontologo();
+
+    const nuevoOdontologo = { 
+      nombre: "Marcos",
+      apellido: "No se",
+      matricula: 1231
+    }
+
+    encontrarOdontologo(4).then(res => console.log(res));
+  }
+
+  render() {
+     return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
       </header>
+      <Odontologos />
     </div>
   );
+  }
+ 
 }
 
 export default App;
